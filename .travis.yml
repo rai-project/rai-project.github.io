@@ -1,0 +1,18 @@
+language: go
+env:
+  global:
+  - GIT_DEPLOY_DIR=public
+  - GIT_DEPLOY_BRANCH=master
+  - GIT_DEPLOY_USERNAME="abdul dakkak"
+  - GIT_DEPLOY_EMAIL=abduld@wolfram.com
+  - secure: l0OLjet2nvVh8zj7KEIqetiJkBoT8595Lo2UZGOVyS2IEHH7JaleVghuI5184P9ckChRhcZ4NSUyaV+XeaHmyaAGuLgKtGhtqEVdG3SQgnS5tt61/6Twxwdo3hj1z7gcjr2bcER2OaVH/olre7g1zTXeUd40SsXKeHRgue22YtHpUA/FQGLqrLpsPzl29C1IXOdMLc3Y0qrY5VOHGQ7AfI3Tbm4Bd8h5Uc4K8Ee3FV5+cUWWkq5ZwRUpt/aU+rmzI1XXZxqi03PSSVFq/R/nfQjRhrxy5NW7AC0MP66UF4hqaO8sonGBhdwKkaXRE9Uu/MALERMxvagYSKYP9Nr7ipIUv9m8zXspGPFbLCYEhff+3yOG4d7nBzumOO5XJQQ9Nex/gwMovgtifPu2FHyyDltT11cgnGE/jZRo5Ih7TIU5kny2r8hle5X0GXCpULzBn+N59QmzuZqmlPd/nMoKKLlML0/WfTUgDrByY8NT/N9sPhtGsTT9JbWN52C7bosHZFl0DlCPB28WF7bApWIlbNYLWgjF+MLL1znDb+wdNcSV5pcdyXNm/g6BlYMY7p0+rzYhYnd5eYHpt2xL7fBoYU41sxGiaAzP9ZEuTfDRCJjziyvGWPndfZ6sVJoNv6qaK/A7Cx9zjo2Glu77rPm1tvYlm2/Y6npfpCgOtEKBlZM=
+branches:
+  only:
+  - sources
+install:
+- rm -rf public || exit 0
+script:
+- binaries/hugo
+after_success:
+- cp .travis.yml public
+- bash deploy.sh -v
