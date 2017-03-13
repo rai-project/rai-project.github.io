@@ -12,7 +12,11 @@ branches:
 install:
 - rm -rf public || exit 0
 script:
+  - echo "Skip tests..."
+after_script:
 - binaries/hugo
 script:
+  - echo "Skip tests..."
+after_script:
 - cp .travis.yml public
 - bash deploy.sh -v
