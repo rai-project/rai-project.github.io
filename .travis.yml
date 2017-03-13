@@ -13,6 +13,6 @@ install:
 - rm -rf public || exit 0
 script:
 - binaries/hugo
-- echo "Running tests"
+script:
 - cp .travis.yml public
 - bash deploy.sh -v
