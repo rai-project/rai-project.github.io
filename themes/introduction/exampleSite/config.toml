@@ -1,8 +1,8 @@
 baseurl             = "/"
 languageCode        = "en-us"
-title               = "RAI Project"
+title               = "Introduction"
 theme               = "introduction"
-enforce_ssl         = "rai-project.com"
+enforce_ssl         = "your-url.com"
 builddrafts         = false
 canonifyurls        = true
 contentdir          = "content"
@@ -16,38 +16,36 @@ fixed = ":title/"
 blog  = "blog/:slug/"
 
 [params]
-author        = "RAI Team" # Full name shows on blog post pages
+author        = "A Clever Author" # Full name shows on blog post pages
 firstname     = "awesome" # First name shows in introduction on main page
-tagline       = "RAI Website Comming Soon" # Appears after the introduction
+tagline       = "I'm a theme for Hugo." # Appears after the introduction
 introheight   = "large" # Input either 'medium' or 'large' or 'fullheight'
 avatar        = "img/profile.png" # Path to image in static folder eg. img/avatar.png 
-# email         = "youremail@email.com" # Shows in contact section, or leave blank to omit
+email         = "youremail@email.com" # Shows in contact section, or leave blank to omit
 dateform      = "Jan 2, 2006"
 dateformfull  = "Mon Jan 2 2006 15:04:05 EST"
 cachebuster   = true # Add the current unix timestamp in query string for cache busting css assets
-description   = "RAI Website"
+description   = "Website Description"
 faviconfile   = "img/fav.ico"
 highlightjs   = true # Syntax highlighting
 lang          = "en"
 footertext    = "" # Text to show in footer (overrides default text)
 
 # Social icons appear in introduction and contact section. Input your username only, eg "you" as it appears in "twitter.com/you"
-# linkedin      = "you"
-# twitter       = "you"
-# github        = "you"
-# codepen       = "you"
-# pinterest     = ""
-# facebook      = ""
-# googleplus    = ""
+linkedin      = "you"
+twitter       = "you"
+github        = "you"
+codepen       = "you"
+pinterest     = ""
+facebook      = ""
+googleplus    = ""
 
-# showblog        = true # Show Blog section on home page
-# showallposts    = false # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
-# showlatest      = true # Show latest blog post summary
-# sharebuttons    = true # On post pages, show share this social buttons
+showblog        = true # Show Blog section on home page
+showallposts    = false # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
+showlatest      = true # Show latest blog post summary
+sharebuttons    = true # On post pages, show share this social buttons
 
-# showabout       = false
-# showcontact     = false
-# showprojects    = true # Show Projects section on home page
+showprojects    = true # Show Projects section on home page
 
 # This is your projects section. Three images of the same dimensions will look the nicest. If images are omitted, text links will be shown.
 project1link    = "#"
