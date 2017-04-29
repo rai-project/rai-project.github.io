@@ -2,32 +2,31 @@ language: go
 addons:
   apt:
     packages:
-    - python-pygments
+      - python-pygments
 env:
   global:
-  - GIT_DEPLOY_DIR=public
-  - GIT_DEPLOY_BRANCH=master
-  - GIT_DEPLOY_USERNAME="abdul dakkak"
-  - GIT_DEPLOY_EMAIL=abduld@wolfram.com
-  - secure: mdUOJ6mm3ShWYmrwuUX7CEedOAedLtTOyVGA55hbrJCQrlKnsZu+G7+qhzEAlHMn6A7inTyieGwafGZgdbbxYUxvsxiJzvgOS49FsYx7iJCnCWMpBeGGKgUHkpWdQoe7Gnq6OG2p41hnRCX4oYKeJhT5oQcLHyIehIT264gZEc6lR2HiJFoUIxkF/4++pYciD41kbW5mDvsYPNa/DvKU1PgF/S9r5OdbdKk6BXYEh1LuGRWmehQNfaIRwLY59hlDTcwSR8BeO6/awSBl0rROkpQXfX3Oz/H08NY9yNZt/0V2/bCPoIcl1wgaBqBGP2JEkI9kYjWgEG8LXC1o/7W1nij1+bceZ6BmpIBIiW7ALBqUaemfGBCs3Cy+07KRKNKUGJ4fy9Gnkyb0uPSHtB21f5V8H3g1GSxsNubeVyZNnFJdGlUHzGtPA/KtjfrQuGKUKHGsv+GYJuHwDswdNnq3hWBA5P7SxvXfWdMl4E8ceRnX8k1W0cTDba7VKFvG5pvBms+mUl7jf6LsCINreJYx89MPt1LaPsSKg+sguJHZsj+SUgNxPR05WIQOvt1CKrbTCc/9OZfHZ+ykpznm2IaexeE1PeoPr/6Zl6eh6soRxw3upZrwyL+67hzbdD54GK4QQPz1j9k6a7a3jJOWlufC6IpSGkIj7C5TY/3Mq30acb8=
+    - GIT_DEPLOY_DIR=public
+    - GIT_DEPLOY_BRANCH=master
+    - GIT_DEPLOY_USERNAME="abdul dakkak"
+    - GIT_DEPLOY_EMAIL=abduld@wolfram.com
+    - secure: mdUOJ6mm3ShWYmrwuUX7CEedOAedLtTOyVGA55hbrJCQrlKnsZu+G7+qhzEAlHMn6A7inTyieGwafGZgdbbxYUxvsxiJzvgOS49FsYx7iJCnCWMpBeGGKgUHkpWdQoe7Gnq6OG2p41hnRCX4oYKeJhT5oQcLHyIehIT264gZEc6lR2HiJFoUIxkF/4++pYciD41kbW5mDvsYPNa/DvKU1PgF/S9r5OdbdKk6BXYEh1LuGRWmehQNfaIRwLY59hlDTcwSR8BeO6/awSBl0rROkpQXfX3Oz/H08NY9yNZt/0V2/bCPoIcl1wgaBqBGP2JEkI9kYjWgEG8LXC1o/7W1nij1+bceZ6BmpIBIiW7ALBqUaemfGBCs3Cy+07KRKNKUGJ4fy9Gnkyb0uPSHtB21f5V8H3g1GSxsNubeVyZNnFJdGlUHzGtPA/KtjfrQuGKUKHGsv+GYJuHwDswdNnq3hWBA5P7SxvXfWdMl4E8ceRnX8k1W0cTDba7VKFvG5pvBms+mUl7jf6LsCINreJYx89MPt1LaPsSKg+sguJHZsj+SUgNxPR05WIQOvt1CKrbTCc/9OZfHZ+ykpznm2IaexeE1PeoPr/6Zl6eh6soRxw3upZrwyL+67hzbdD54GK4QQPz1j9k6a7a3jJOWlufC6IpSGkIj7C5TY/3Mq30acb8=
 branches:
   only:
-  - sources
+    - sources
 install:
-- rm -rf public || exit 0
+  - rm -rf public || exit 0
 script:
-- echo "Skip tests..."
-after_script:
-- go get -u -v github.com/spf13/hugo
-- go get github.com/netlify/netlify-go
-- npm install netlify-cli -g
-- test -n "$TRAVIS_TAG" && curl -sL https://git.io/goreleaser | bash
-- hugo
-- echo "rai-project.com" > ./public/CNAME
+  - go get -u -v github.com/spf13/hugo
+  - go get github.com/netlify/netlify-go
+  - npm install netlify-cli -g
+  - test -n "$TRAVIS_TAG" && curl -sL https://git.io/goreleaser | bash
+before_deploy:
+  - hugo
+  - echo "rai-project.com" > ./public/CNAME
 deploy:
   provider: pages
   skip_cleanup: true
   local_dir: public
   github_token: "$GITHUB_TOKEN"
   on:
-    branch: master
+    branch: sources
