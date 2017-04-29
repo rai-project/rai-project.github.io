@@ -19,10 +19,11 @@ script:
 - echo "Skip tests..."
 after_script:
 - go get -u -v github.com/spf13/hugo
+- go get github.com/netlify/netlify-go
+- npm install netlify-cli -g
 - test -n "$TRAVIS_TAG" && curl -sL https://git.io/goreleaser | bash
 - hugo
 - echo "rai-project.com" > ./public/CNAME
-- bash deploy.sh -v
 deploy:
   provider: pages
   skip_cleanup: true
