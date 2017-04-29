@@ -10,13 +10,12 @@ branches:
   only:
   - sources
 install:
-- rm -rf public || exit 0
+  - rm -rf public || exit 0
 script:
   - echo "Skip tests..."
 after_script:
-- binaries/hugo
-script:
-  - echo "Skip tests..."
-after_script:
-- cp .travis.yml public
-- bash deploy.sh -v
+  - go get -u -v github.com/spf13/hugo
+  - test -n "$TRAVIS_TAG" && curl -sL https://git.io/goreleaser | bash
+  - hugo
+  - echo "rai-project.com" > ./public/CNAME
+  - bash deploy.sh -v
