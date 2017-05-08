@@ -18,10 +18,10 @@ blog  = "blog/:slug/"
 [params]
 author        = "RAI Team" # Full name shows on blog post pages
 firstname     = "awesome" # First name shows in introduction on main page
-tagline       = "RAI Website Comming Soon" # Appears after the introduction
+tagline       = "Website Comming Soon" # Appears after the introduction
 introheight   = "large" # Input either 'medium' or 'large' or 'fullheight'
 avatar        = "img/profile.png" # Path to image in static folder eg. img/avatar.png 
-# email         = "youremail@email.com" # Shows in contact section, or leave blank to omit
+# email       = "youremail@email.com" # Shows in contact section, or leave blank to omit
 dateform      = "Jan 2, 2006"
 dateformfull  = "Mon Jan 2 2006 15:04:05 EST"
 cachebuster   = true # Add the current unix timestamp in query string for cache busting css assets
@@ -34,7 +34,7 @@ footertext    = "" # Text to show in footer (overrides default text)
 # Social icons appear in introduction and contact section. Input your username only, eg "you" as it appears in "twitter.com/you"
 # linkedin      = "you"
 # twitter       = "you"
-# github        = "you"
+github          = "rai-project"
 # codepen       = "you"
 # pinterest     = ""
 # facebook      = ""
